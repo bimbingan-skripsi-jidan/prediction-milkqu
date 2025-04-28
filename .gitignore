@@ -1,0 +1,7 @@
+.streamlit/secrets.toml
+/.venv
+
+# environment
+.env
+config.toml
+config.yaml
