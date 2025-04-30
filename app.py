@@ -10,7 +10,7 @@ from sqlalchemy import text
 st.set_page_config(page_title="Milkqu - Predict Milk Quality", page_icon="🎓", layout="wide", initial_sidebar_state="auto")
 
 
-def main():
+def login_screen():
 
     # def login_screen():
     st.markdown("<div style='text-align: center; font-size: 3.5rem; font-weight: bold; color: white; text-shadow: -1px -1px 0 #84BAE8, 1px -1px 0 #84BAE8, -1px 1px 0 #84BAE8, 1px 1px 0 #84BAE8, -2px 0 0 #84BAE8, 2px 0 0 #84BAE8, 0 -2px 0 #84BAE8, 0 2px 0 #84BAE8;'>👋 Welcome to MilkQu</div>", unsafe_allow_html=True)
@@ -28,7 +28,7 @@ def main():
             position: relative;
             max-width: 550px;
         ">
-            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(11).jpg" 
+            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(7).jpg"  alt="logo Milkqu login"
                 style="
                     width: 100%;
                     border-radius: 12px;
@@ -180,7 +180,7 @@ tilt_effect = """
         <span class="t_over"></span>
         <span class="t_over"></span>
         <div class="tilt-box">
-            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(11).jpg" alt="Milkqu Header" style="width: 100%;"/>
+            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(7).jpg" alt="Milkqu Header" style="width: 100%;"/>
         </div>
     </div>
 </div>
@@ -188,8 +188,8 @@ tilt_effect = """
 """
 
 # CORE
-if not st.experimental_user.is_logged_in:
-    main()
+if not st.user.is_logged_in:
+    login_screen()
 else:
 
     # --- Sidebar ---
@@ -256,7 +256,7 @@ else:
         
         st.button("Log out", on_click=st.logout)
         st.markdown("---")
-        st.success(f"Welcome to MilkQu App, {st.experimental_user.name}!")
+        st.success(f"Welcome to MilkQu App, {st.user.name}!")
 
     if menu == "Documentations":
 
