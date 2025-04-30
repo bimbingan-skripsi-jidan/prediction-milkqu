@@ -7,20 +7,32 @@ from streamlit.components.v1 import html
 from sqlalchemy import text
 
 # --- Streamlit Page Config ---
-st.set_page_config(page_title="Milkqu - Predict Milk Quality", page_icon="🎓", layout="wide", initial_sidebar_state="auto")
+st.set_page_config(
+    page_title="Milkqu - Predict Milk Quality",
+    page_icon="🎓",
+    layout="wide",
+    initial_sidebar_state="auto",
+)
 
 
-def login_screen():
+def main():
 
     # def login_screen():
-    st.markdown("<div style='text-align: center; font-size: 3.5rem; font-weight: bold; color: white; text-shadow: -1px -1px 0 #84BAE8, 1px -1px 0 #84BAE8, -1px 1px 0 #84BAE8, 1px 1px 0 #84BAE8, -2px 0 0 #84BAE8, 2px 0 0 #84BAE8, 0 -2px 0 #84BAE8, 0 2px 0 #84BAE8;'>👋 Welcome to MilkQu</div>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: gray;'>Predict your milk quality easily with AI</p>", unsafe_allow_html=True)
+    st.markdown(
+        "<div style='text-align: center; font-size: 3.5rem; font-weight: bold; color: white; text-shadow: -1px -1px 0 #84BAE8, 1px -1px 0 #84BAE8, -1px 1px 0 #84BAE8, 1px 1px 0 #84BAE8, -2px 0 0 #84BAE8, 2px 0 0 #84BAE8, 0 -2px 0 #84BAE8, 0 2px 0 #84BAE8;'>👋 Welcome to MilkQu</div>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        "<p style='text-align: center; color: gray;'>Predict your milk quality easily with AI</p>",
+        unsafe_allow_html=True,
+    )
     # st.header("This app is private.")
-    
+
     st.markdown("---")
 
     # Centered Image
-    st.markdown("""
+    st.markdown(
+        """
         <div style="
             display: flex; 
             justify-content: center; 
@@ -47,10 +59,13 @@ def login_screen():
                 }
             }
         </style>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
     # Styling dan UI login MilkQu
-    st.markdown("""
+    st.markdown(
+        """
     <style>
     /* Body style */
     body {
@@ -92,10 +107,13 @@ def login_screen():
         margin-top: 1.2rem;
     }
     </style>
-""", unsafe_allow_html=True)
+""",
+        unsafe_allow_html=True,
+    )
 
     st.button("Log in with Google", on_click=st.login)
     st.markdown("---")
+
 
 # --- Apply style & script configurations ---
 style_configurations = """
@@ -113,8 +131,6 @@ style_configurations = """
     .stProgress > div > div > div > div {background-color: green;}
     button[title="View fullscreen"] {visibility: hidden;}
     iframe[title="st.iframe"] {display: none;}
-    .t_over:nth-child(8):hover ~ .tilt-box{transform: rotateX(20deg) rotateY(0deg);}
-    .t_over:nth-child(9):hover ~ .tilt-box{transform: rotateX(20deg) rotateY(-20deg);}
 </style>
 """
 script_configurations = """
@@ -130,17 +146,51 @@ html(script_configurations)
 # --- Declare global function ---
 @st.cache_data
 def load_default_milk_data():
-    return pd.DataFrame({"pH": ["6.6"], "Temprature": ["35"], "Taste": ["1"], "Odor": ["0"], "Fat ": ["1"], "Turbidity": ["0"], "Colour": ["254"]}, index=[0])
+    return pd.DataFrame(
+        {
+            "pH": ["6.6"],
+            "Temprature": ["35"],
+            "Taste": ["1"],
+            "Odor": ["0"],
+            "Fat ": ["1"],
+            "Turbidity": ["0"],
+            "Colour": ["254"],
+        },
+        index=[0],
+    )
 
 
 @st.cache_data
 def load_milk_data(ph, temprature, taste, odor, fat, turbidity, colour):
-    return pd.DataFrame({"pH": [ph], "Temprature": [temprature], "Taste": [taste], "Odor": [odor], "Fat ": [fat], "Turbidity": [turbidity], "Colour": [colour]}, index=[0])
+    return pd.DataFrame(
+        {
+            "pH": [ph],
+            "Temprature": [temprature],
+            "Taste": [taste],
+            "Odor": [odor],
+            "Fat ": [fat],
+            "Turbidity": [turbidity],
+            "Colour": [colour],
+        },
+        index=[0],
+    )
 
 
 @st.cache_data
 def load_encoded_milk_data(ph, temprature, taste, odor, fat, turbidity, colour, _list_column):
-    return pd.DataFrame({"pH": ph, "Temprature": temprature, "Taste": taste, "Odor": odor, "Fat ": fat, "Turbidity": turbidity, "Colour": colour}, index=[0], columns=_list_column)
+    return pd.DataFrame(
+        {
+            "pH": ph,
+            "Temprature": temprature,
+            "Taste": taste,
+            "Odor": odor,
+            "Fat ": fat,
+            "Turbidity": turbidity,
+            "Colour": colour,
+        },
+        index=[0],
+        columns=_list_column,
+    )
 
 
 @st.cache_resource
@@ -169,27 +219,14 @@ direct_menu = int(current_url["redirect"][0]) if "redirect" in current_url else 
 
 tilt_effect = """
 <div class="contaienr">
-    <div class="tilt-box-wrap">
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <span class="t_over"></span>
-        <div class="tilt-box">
-            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(7).jpg" alt="Milkqu Header" style="width: 100%;"/>
-        </div>
-    </div>
+    <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(7).jpg" alt="Milkqu Header" style="width: 100%;"/>
 </div>
 <br/>
 """
 
 # CORE
-if not st.user.is_logged_in:
-    login_screen()
+if not st.experimental_user.is_logged_in:
+    main()
 else:
 
     # --- Sidebar ---
@@ -200,29 +237,33 @@ else:
         st.markdown(tilt_effect, unsafe_allow_html=True)
 
         # --- Menu ---
-        menu = option_menu(None, ["Documentations", "Milkqu Prediction", "Prediction History"],
-                           icons=["journal-text", "ui-checks", "receipt", "clock-history"],
-                           default_index=int(direct_menu),
-                           styles={
-                               "container": {
-                                   "padding": "0px !important",
-                                   "padding-right": "2px"
-                               },
-                               "nav-item": {
-                                   "background": "#fff"
-                               },
-                               "nav-link": {
-                                   "font-size": "13px",
-                                   "text-align": "left",
-                                   "background-color": "#F8F9FB"
-                               },
-                               "nav-link-selected": {
-                                   "background-color": "#E8B840"
-                               },
-                           })
+        menu = option_menu(
+            None,
+            ["Documentations", "Milkqu Prediction", "Prediction History"],
+            icons=["journal-text", "ui-checks", "receipt", "clock-history"],
+            default_index=int(direct_menu),
+            styles={
+                "container": {
+                    "padding": "0px !important",
+                    "padding-right": "2px"
+                },
+                "nav-item": {
+                    "background": "#fff"
+                },
+                "nav-link": {
+                    "font-size": "13px",
+                    "text-align": "left",
+                    "background-color": "#F8F9FB",
+                },
+                "nav-link-selected": {
+                    "background-color": "#E8B840"
+                },
+            },
+        )
 
         # github repo button
-        st.write("""
+        st.write(
+            """
         <style>
         .custom-button {
             background-color: rgb(248, 249, 251);
@@ -252,11 +293,12 @@ else:
         </a>
         </div>
         """,
-                 unsafe_allow_html=True)
-        
+            unsafe_allow_html=True,
+        )
+
         st.button("Log out", on_click=st.logout)
         st.markdown("---")
-        st.success(f"Welcome to MilkQu App, {st.user.name}!")
+        st.success(f"Welcome to MilkQu App, {st.experimental_user.name}!")
 
     if menu == "Documentations":
 
@@ -274,45 +316,42 @@ else:
         )
 
         # ─── PAGE TITLE ────────────────────────────────────────────────────────────────
-        st.markdown("""
+        st.markdown(
+            """
             <div style='display: flex; align-items: center; gap: 10px;'>
                 <img src='https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/logo-milk.png' alt='MilkQu Logo' width='40'/>
                 <h1 style='margin: 0;' class='title'>MilkQu Docs</h1>
             </div>
-        """, unsafe_allow_html=True)
+        """,
+            unsafe_allow_html=True,
+        )
 
         st.markdown("---")
 
         # ─── WHAT IS MILKQU? ───────────────────────────────────────────────────────────
         st.markdown("<h2 class='section-title'>🥛 What is MilkQu?</h2>", unsafe_allow_html=True)
-        st.info(
-            """
+        st.info("""
             MilkQu (Milk Quality) adalah web app berbasis machine learning
             untuk mengklasifikasikan kualitas susu berdasarkan beberapa parameter seperti:
             keasaman, suhu, kejernihan, bau, kandungan lemak, tingkat keruh, dan warna.
             Dataset diambil dari Kaggle untuk memahami karakteristik fisika & kimia susu.Melalui antarmuka yang intuitif dan dapat mengunduh laporan prediksi history dengan format CSV, atau langsung mengekspor dataset ke format CSV untuk analisis lebih dalam. Model kami dilatih menggunakan Milk Quality Dataset dari Kaggle memberikan jaminan bahwa setiap prediksi lahir dari data real beragam kondisi susu.Dengan MilkQu, analisis kualitas susu menjadi lebih efisien, terpercaya, dan mudah diakses di mana saja—cukup buka browser, unggah data, dan biarkan algoritma cerdas kami bekerja untuk Anda!
-            """
-        )
+            """)
 
         # ─── ABOUT DATASETS ────────────────────────────────────────────────────────────
         st.markdown("<h2 class='section-title'>📊 About Datasets</h2>", unsafe_allow_html=True)
         with st.expander("Detail Dataset (Kaggle: Milk Quality Dataset)"):
-            st.markdown(
-                """
+            st.markdown("""
                 - **Jumlah baris:** 1000+  
                 - **Fitur utama:** pH, Temperature, Taste, Odor, Fat, Turbidity, Colour and Grade  
-                """
-            )
+                """)
 
         # ─── HOW MILKQU WORKS ──────────────────────────────────────────────────────────
         st.markdown("<h2 class='section-title'>⚙️ How MilkQu Works</h2>", unsafe_allow_html=True)
-        st.markdown(
-            """
+        st.markdown("""
             1. User mengunggah data parameter susu  
             2. Model ML melakukan prediksi kualitas  
             3. Hasil ditampilkan sebagai **High**, **Medium**, atau **Low**
-            """
-        )
+            """)
         code = '''def predict():
         """
         this is code
@@ -347,14 +386,32 @@ else:
 
         st.dataframe(default_milkqu_df, use_container_width=True)
 
-        st.caption(":blue[pH] = Mengukur tingkat keasaman susu, yang bisa mempengaruhi kesegarannya.", unsafe_allow_html=False)
-        st.caption(":blue[Temperature] = Suhu susu saat diukur, yang berpengaruh terhadap pertumbuhan bakteri.", unsafe_allow_html=False)
-        st.caption(":blue[Taste] = Apakah susu terasa normal atau asam.", unsafe_allow_html=False)
-        st.caption(":blue[Odor] = Bau susu, apakah masih segar atau sudah menunjukkan tanda-tanda pembusukan.", unsafe_allow_html=False)
+        st.caption(
+            ":blue[pH] = Mengukur tingkat keasaman susu, yang bisa mempengaruhi kesegarannya.",
+            unsafe_allow_html=False,
+        )
+        st.caption(
+            ":blue[Temperature] = Suhu susu saat diukur, yang berpengaruh terhadap pertumbuhan bakteri.",
+            unsafe_allow_html=False,
+        )
+        st.caption(
+            ":blue[Taste] = Apakah susu terasa normal atau asam.",
+            unsafe_allow_html=False,
+        )
+        st.caption(
+            ":blue[Odor] = Bau susu, apakah masih segar atau sudah menunjukkan tanda-tanda pembusukan.",
+            unsafe_allow_html=False,
+        )
         st.caption(":blue[Fat] = Kandungan lemak dalam susu.", unsafe_allow_html=False)
         st.caption(":blue[Turbidity] = Seberapa keruh susu tersebut.", unsafe_allow_html=False)
-        st.caption(":blue[Colour] = Warna susu yang bisa menunjukkan perubahan kualitas.", unsafe_allow_html=False)
-        st.caption(":blue[Grade] = Label hasil kualitas susu berdasarkan fitur-fitur di atas (high, medium, low).", unsafe_allow_html=False)
+        st.caption(
+            ":blue[Colour] = Warna susu yang bisa menunjukkan perubahan kualitas.",
+            unsafe_allow_html=False,
+        )
+        st.caption(
+            ":blue[Grade] = Label hasil kualitas susu berdasarkan fitur-fitur di atas (high, medium, low).",
+            unsafe_allow_html=False,
+        )
 
         # category one : predict milkqu answer
         st.subheader("Milk Quality Prediction")
@@ -399,7 +456,16 @@ else:
                 if delivered_results:
                     for percent_complete in range(100):
                         df_predict = load_milk_data(ph, temprature, taste, odor, fat, turbidity, colour)
-                        encoded_df = load_encoded_milk_data(ph, temprature, taste, odor, fat, turbidity, colour, df_predict.columns)
+                        encoded_df = load_encoded_milk_data(
+                            ph,
+                            temprature,
+                            taste,
+                            odor,
+                            fat,
+                            turbidity,
+                            colour,
+                            df_predict.columns,
+                        )
                         predictions = clusters.predict(encoded_df)
                         if df_predict is not None and percent_complete == 20:
                             progress_bar.progress(percent_complete + 1, text="STATUS : GATHERING DATASET")
@@ -424,7 +490,13 @@ else:
                     conn = st.connection("postgresql", type="sql")
 
                     with conn.session as session:
-                        session.execute(text("INSERT INTO histories (name, quality) VALUES (:name, :quality)"), {"name": identity, "quality": prediction_label[int(predictions)]})
+                        session.execute(
+                            text("INSERT INTO histories (name, quality) VALUES (:name, :quality)"),
+                            {
+                                "name": identity,
+                                "quality": prediction_label[int(predictions)],
+                            },
+                        )
                         session.commit()
 
                     st.success(identity + " Milk Grade Is " + prediction_label[int(predictions)])
@@ -435,16 +507,16 @@ else:
 
     elif menu == "Prediction History":
 
-            # Warna tema utama
-        PRIMARY_COLOR = "#2E86C1"     # Biru cerah
-        SECONDARY_COLOR = "#5DADE2"   # Biru muda
-        ACCENT_COLOR = "#FF9800"      # Oranye
-        SUCCESS_COLOR = "#00C853"     # Hijau
-        WARNING_COLOR = "#FFB74D"     # Oranye muda
-        DANGER_COLOR = "#F44336"      # Merah
-        BG_COLOR = "#F5F7F9"          # Latar belakang abu-abu terang
+        # Warna tema utama
+        PRIMARY_COLOR = "#2E86C1"  # Biru cerah
+        SECONDARY_COLOR = "#5DADE2"  # Biru muda
+        ACCENT_COLOR = "#FF9800"  # Oranye
+        SUCCESS_COLOR = "#00C853"  # Hijau
+        WARNING_COLOR = "#FFB74D"  # Oranye muda
+        DANGER_COLOR = "#F44336"  # Merah
+        BG_COLOR = "#F5F7F9"  # Latar belakang abu-abu terang
 
-        st.markdown (
+        st.markdown(
             f"""
                 <style>
             .metric-card {{
@@ -466,7 +538,7 @@ else:
             }}
             </style>
             """,
-        unsafe_allow_html=True,
+            unsafe_allow_html=True,
         )
 
         st.markdown(
@@ -487,34 +559,50 @@ else:
 
         # ─── DATABASE & DATAFRAME ────────────────────────────────────────────────────
         conn = st.connection("postgresql", type="sql")
-        df = conn.query('SELECT name, quality AS grade FROM histories;', ttl=0)
+        df = conn.query("SELECT name, quality AS grade FROM histories;", ttl=0)
 
         # ubah label jadi pakai ikon
-        label_map = {
-            "High":   "🚀 High",
-            "Medium": "🚴 Medium",
-            "Low":    "🚶 Low"
-        }
+        label_map = {"High": "🚀 High", "Medium": "🚴 Medium", "Low": "🚶 Low"}
         df["grade"] = df["grade"].map(label_map)
 
         # ─── SUMMARY METRICS ──────────────────────────────────────────────────────────
         total_pred = len(df)
-        high_count   = df["grade"].str.contains("High").sum()
+        high_count = df["grade"].str.contains("High").sum()
         medium_count = df["grade"].str.contains("Medium").sum()
-        low_count    = df["grade"].str.contains("Low").sum()
+        low_count = df["grade"].str.contains("Low").sum()
 
         st.markdown("<div style='display: flex; gap: 15px;'>", unsafe_allow_html=True)
-        
+
         metrics = [
-            {"label": "Total Predictions", "value": total_pred, "color": PRIMARY_COLOR, "percentage": ""},
-            {"label": "High 🚀", "value": high_count, "color": SUCCESS_COLOR, "percentage": f"{high_count/total_pred:.0%}"},
-            {"label": "Medium 🚴", "value": medium_count, "color": WARNING_COLOR, "percentage": f"{medium_count/total_pred:.0%}"},
-            {"label": "Low 🚶", "value": low_count, "color": DANGER_COLOR, "percentage": f"{low_count/total_pred:.0%}"}
+            {
+                "label": "Total Predictions",
+                "value": total_pred,
+                "color": PRIMARY_COLOR,
+                "percentage": "",
+            },
+            {
+                "label": "High 🚀",
+                "value": high_count,
+                "color": SUCCESS_COLOR,
+                "percentage": f"{high_count/total_pred:.0%}",
+            },
+            {
+                "label": "Medium 🚴",
+                "value": medium_count,
+                "color": WARNING_COLOR,
+                "percentage": f"{medium_count/total_pred:.0%}",
+            },
+            {
+                "label": "Low 🚶",
+                "value": low_count,
+                "color": DANGER_COLOR,
+                "percentage": f"{low_count/total_pred:.0%}",
+            },
         ]
-        
+
         col1, col2, col3, col4 = st.columns(4)
         cols = [col1, col2, col3, col4]
-        
+
         for i, (col, metric) in enumerate(zip(cols, metrics)):
             with col:
                 st.markdown(
@@ -525,7 +613,7 @@ else:
                         <div style="color: {metric['color']}; font-size: 12px; font-weight: bold;">{metric['percentage']}</div>
                     </div>
                     """,
-                    unsafe_allow_html=True
+                    unsafe_allow_html=True,
                 )
 
         # ─── DISTRIBUTION CHART ───────────────────────────────────────────────────────
@@ -537,7 +625,9 @@ else:
         with st.expander("🔍 Filter & Search"):
             with st.form("filter_form"):
                 selected_grades = st.multiselect(
-                    "Pilih Grade", options=df["grade"].unique(), default=df["grade"].unique()
+                    "Pilih Grade",
+                    options=df["grade"].unique(),
+                    default=df["grade"].unique(),
                 )
                 name_query = st.text_input("Cari berdasarkan Nama")
                 cari = st.form_submit_button("🔍 Cari")
@@ -552,7 +642,10 @@ else:
 
         # ─── FILTERED RESULTS ─────────────────────────────────────────────────────────
         st.markdown("### 📋 Hasil Filter")
-        st.dataframe(df_filtered, use_container_width=True,)
+        st.dataframe(
+            df_filtered,
+            use_container_width=True,
+        )
 
         # ─── DOWNLOAD BUTTON ──────────────────────────────────────────────────────────
         csv = df_filtered.to_csv(index=False).encode("utf-8")
@@ -560,6 +653,6 @@ else:
             label="⬇️ Download CSV",
             data=csv,
             file_name="milkqu_prediction_history.csv",
-            mime="text/csv"
+            mime="text/csv",
         )
         st.caption("© 2025 MilkQu • built with Streamlit")
