@@ -19,11 +19,11 @@ def main():
 
     # def login_screen():
     st.markdown(
-        "<div style='text-align: center; font-size: 3.5rem; font-weight: bold; color: white; text-shadow: -1px -1px 0 #84BAE8, 1px -1px 0 #84BAE8, -1px 1px 0 #84BAE8, 1px 1px 0 #84BAE8, -2px 0 0 #84BAE8, 2px 0 0 #84BAE8, 0 -2px 0 #84BAE8, 0 2px 0 #84BAE8;'>👋 Welcome to MilkQu</div>",
+        "<div style='text-align: center; font-size: 3.5rem; font-weight: bold; color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000;'>👋 Welcome to MilkQu</div>",
         unsafe_allow_html=True,
     )
     st.markdown(
-        "<p style='text-align: center; color: gray;'>Predict your milk quality easily with AI</p>",
+        "<p style='text-align: center; color: #D1EBFB;'>Predict your milk quality easily with AI</p>",
         unsafe_allow_html=True,
     )
     # st.header("This app is private.")
@@ -40,7 +40,7 @@ def main():
             position: relative;
             max-width: 550px;
         ">
-            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(7).jpg"  alt="logo Milkqu login"
+            <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/milk-%230e1117.jpg"  alt="logo Milkqu login"
                 style="
                     width: 100%;
                     border-radius: 12px;
@@ -69,42 +69,92 @@ def main():
     <style>
     /* Body style */
     body {
-        background-color: #ffffff;
-        color: #333333;
+        background-color: #1a1a1a;
+        color: #d1ebfb;
         font-family: 'Segoe UI', Arial, sans-serif;
     }
     
     /* Button style */
     .stButton>button {
-        background-color: #f0f4f8;
-        color: #2c3e50;
-        border: 1px solid #d1dbe8;
+        background-color: #2c3854;
+        color: #d1ebfb;
+        border: 1px solid #4a6284;
         border-radius: 8px;
-        padding: 0.5rem 1.2rem;
+        padding: 0.6rem 1.5rem;
         font-size: 1rem;
         font-weight: 500;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         width: auto;
-        min-width: 180px;
+        min-width: 200px;
     }
 
     .stButton>button:hover {
-        background-color: #e6eef7;
-        border-color: #a3b8cc;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #3d4e70;
+        border-color: #5d7eaf;
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
     
     .stButton>button:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        transform: translateY(1px);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     }
 
     .stButton {
         display: flex;
         justify-content: center;
-        margin-top: 1.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Streamlit base element styling */
+    .css-1d391kg, .css-12oz5g7 {
+        background-color: #1e1e1e;
+    }
+    
+    .stTextInput > div > div > input {
+        background-color: #2d2d2d;
+        color: #d1ebfb;
+        border-color: #4a6284;
+    }
+    
+    .stNumberInput > div > div > input {
+        background-color: #2d2d2d;
+        color: #d1ebfb;
+        border-color: #4a6284;
+    }
+    
+    .stSelectbox > div > div > div {
+        background-color: #2d2d2d;
+        color: #d1ebfb;
+    }
+    
+    .stDataFrame {
+        background-color: #2d2d2d;
+    }
+    
+    /* Make sure links are visible in dark mode */
+    a {
+        color: #5d9df5 !important;
+    }
+    
+    a:hover {
+        color: #8ab6f9 !important;
+    }
+    
+    /* Fix for expandable sections in dark mode */
+    .streamlit-expanderHeader {
+        background-color: #2c3854;
+        color: #d1ebfb !important;
+        border-radius: 5px;
+    }
+    
+    .streamlit-expanderContent {
+        background-color: #1a1a1a;
+        border: 1px solid #2c3854;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
     }
     </style>
 """,
@@ -112,25 +162,79 @@ def main():
     )
 
     st.button("Log in with Google", on_click=st.login)
-    st.markdown("---")
+    st.markdown("<hr style='border: 1px solid #2c3854;'>", unsafe_allow_html=True)
 
 
 # --- Apply style & script configurations ---
 style_configurations = """
 <style>
-    #MainMenu {visibility: hidden;}
-    div[data-testid="collapsedControl"] {top: 1rem !important;}
-    div[class="css-1nm2qww e1fqkh3o2"] {top: 1rem !important;}
-    footer {visibility: hidden;}
-    .stApp {top: 1.5px !important;}
-    section[data-testid="stSidebar"] div {gap: 0rem !important;}
-    section[data-testid="stSidebar"] {
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 2rem 2rem !important;
-        background-color: white !important;
+    /* Streamlit dark mode enhancements */
+    .stApp {
+        background-color: #121212;
     }
-    .stProgress > div > div > div > div {background-color: green;}
-    button[title="View fullscreen"] {visibility: hidden;}
-    iframe[title="st.iframe"] {display: none;}
+    
+    .main .block-container {
+        background-color: #1a1a1a;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1, h2, h3, h4, h5 {
+        color: #d1ebfb !important;
+    }
+    
+    p, li, span, label {
+        color: #c9d1d9 !important;
+    }
+    
+    code {
+        background-color: #2d333b !important;
+        color: #d1ebfb !important;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+    
+    pre {
+        background-color: #2d333b !important;
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #444c56;
+    }
+    
+    .css-1kyxreq {
+        background-color: #21262d !important;
+    }
+    
+    /* Progress bar customization */
+    .stProgress > div > div {
+        background-color: #5d9df5 !important;
+    }
+    
+    /* Info box styling */
+    .stAlert {
+        background-color: #2c3854 !important;
+        color: #d1ebfb !important;
+        border-color: #4a6284 !important;
+    }
+    
+    /* Sidebar styling */
+    .css-1d391kg, .css-12oz5g7 {
+        background-color: #1e1e1e;
+    }
+    
+    .sidebar .sidebar-content {
+        background-color: #1e1e1e;
+    }
+    
+    .sidebar .block-container {
+        background-color: #141414;
+    }
+    
+    /* Custom divider */
+    hr {
+        border-color: #2c3854 !important;
+    }
 </style>
 """
 script_configurations = """
@@ -219,7 +323,7 @@ direct_menu = int(current_url["redirect"][0]) if "redirect" in current_url else 
 
 tilt_effect = """
 <div class="contaienr">
-    <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/image_fx%20(7).jpg" alt="Milkqu Header" style="width: 100%;"/>
+    <img src="https://raw.githubusercontent.com/jidan24/asset/refs/heads/master/milk-%230e1117.jpg" alt="Milkqu Header" style="width: 100%;"/>
 </div>
 <br/>
 """
@@ -243,53 +347,64 @@ else:
             icons=["journal-text", "ui-checks", "receipt", "clock-history"],
             default_index=int(direct_menu),
             styles={
-                "container": {
-                    "padding": "0px !important",
-                    "padding-right": "2px"
-                },
-                "nav-item": {
-                    "background": "#fff"
-                },
-                "nav-link": {
-                    "font-size": "13px",
-                    "text-align": "left",
-                    "background-color": "#F8F9FB",
-                },
-                "nav-link-selected": {
-                    "background-color": "#E8B840"
-                },
-            },
+                "container": {"background-color": "#1e1e1e", "padding": "10px", "border-radius": "8px"},
+                "icon": {"color": "#8ab6f9", "font-size": "18px"},
+                "nav-link": {"color": "#d1ebfb", "font-size": "16px", "text-align": "left", "margin": "0px", "padding": "10px"},
+                "nav-link-selected": {"background-color": "#2c3854", "color": "#ffffff", "font-weight": "bold"},
+            }
         )
 
-        # github repo button
+        # github and dataset button
         st.write(
             """
         <style>
         .custom-button {
-            background-color: rgb(248, 249, 251);
-            color: #31333f;
-            border: none;
+            background-color: #2c3854;
+            color: #d1ebfb;
+            border: 1px solid #4a6284;
             width: 100%;
             height: 40px;
-            border-radius: 10px;
-            font-family: Avenir, Helvetica, Arial, sans-serif;
-            font-size: 13px;
+            border-radius: 8px;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-size: 14px;
             text-align: left;
             padding-left: 10px;
             cursor: pointer;
             margin-bottom: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .custom-button:hover {
-            background-color: #f2f2f2;
+            background-color: #3d4e70;
+            border-color: #5d7eaf;
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .button-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
         }
         </style>
 
-        <div style='margin-top: -3px; margin-bottom: 25px;'>
+        <div style='margin-top: 10px; margin-bottom: 25px;'>
         <a href="https://github.com/bimbingan-skripsi-jidan/prediction-milkqu" target="_blank">
-            <button class="custom-button">GitHub Repository</button>
+            <button class="custom-button">
+                <svg class="button-icon" viewBox="0 0 24 24" fill="#d1ebfb">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405 1.02 0 2.04.135 3 .405 2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub Repository
+            </button>
         </a>
         <a href="https://www.kaggle.com/datasets/jidanhaviarsaviola/milk-quality" target="_blank">
-            <button class="custom-button">Explore Dataset</button>
+            <button class="custom-button">
+                <svg class="button-icon" viewBox="0 0 24 24" fill="#d1ebfb">
+                    <path d="M17.872 9.01c1.304-1.293 2.835-1.293 3.543-.578c.717.717.777 2.24-.527 3.544l-5.673 5.67c-1.304 1.304-2.835 1.304-3.543.588c-.78-.78-.72-2.24.585-3.544l1.304-1.304c-.15-.4-.277-.806-.335-1.224l-1.996 1.995c-1.756 1.754-1.756 4.2-.02 5.94c1.754 1.753 4.192 1.753 5.95-.02l5.67-5.674c1.756-1.755 1.756-4.192.03-5.94c-1.757-1.758-4.218-1.758-5.982-.01l-.2.208c.478.732.717 1.6.766 2.468l.717-.717zm-11.74 5.95c-1.303 1.303-2.835 1.303-3.552.585c-.717-.717-.777-2.248.526-3.545l5.673-5.67c1.304-1.304 2.835-1.304 3.543-.585c.772.78.712 2.234-.594 3.545l-1.304 1.304c.15.4.278.807.337 1.225l1.994-1.995c1.756-1.756 1.756-4.2.02-5.94c-1.754-1.754-4.192-1.754-5.948.02l-5.673 5.674c-1.754 1.755-1.754 4.192-.02 5.938c1.754 1.753 4.215 1.753 5.95.01l.21-.21c-.478-.72-.716-1.6-.766-2.467l-.697.706z"/>
+                </svg>
+                Explore Dataset
+            </button>
         </a>
         </div>
         """,
@@ -297,7 +412,7 @@ else:
         )
 
         st.button("Log out", on_click=st.logout)
-        st.markdown("---")
+        st.markdown("<hr style='border: 1px solid #2c3854;'>", unsafe_allow_html=True)
         st.success(f"Welcome to MilkQu App, {st.experimental_user.name}!")
 
     if menu == "Documentations":
@@ -307,9 +422,10 @@ else:
             """
             <style>
                 .stApp > header {visibility: hidden;}
-                .title {font-family: 'Helvetica Neue', sans-serif; color: #333;}
-                .section-title {color: #444; margin-top: 30px; margin-bottom: 10px;}
-                .info-box {background-color: #f0f2f6; padding: 15px; border-radius: 8px; border-left: 4px solid #2c3e50;}
+                .title {font-family: 'Segoe UI', sans-serif; color: #d1ebfb;}
+                .section-title {color: #94c2e8; margin-top: 30px; margin-bottom: 10px;}
+                .info-box {background-color: #2c3854; padding: 15px; border-radius: 8px; border-left: 4px solid #5d9df5; color: #d1ebfb;}
+                .code-box {background-color: #2d333b; padding: 15px; border-radius: 8px; color: #d1ebfb; font-family: monospace;}
             </style>
             """,
             unsafe_allow_html=True,
@@ -326,7 +442,7 @@ else:
             unsafe_allow_html=True,
         )
 
-        st.markdown("---")
+        st.markdown("<hr style='border: 1px solid #2c3854;'>", unsafe_allow_html=True)
 
         # ─── WHAT IS MILKQU? ───────────────────────────────────────────────────────────
         st.markdown("<h2 class='section-title'>🥛 What is MilkQu?</h2>", unsafe_allow_html=True)
@@ -362,7 +478,7 @@ else:
         st.code(code, language="python")
 
         # ─── FOOTER ───────────────────────────────────────────────────────────────────
-        st.markdown("---")
+        st.markdown("<hr style='border: 1px solid #2c3854;'>", unsafe_allow_html=True)
         st.caption("© 2025 MilkQu • built with Streamlit")
 
     elif menu == "Milkqu Prediction":
@@ -381,40 +497,79 @@ else:
         clusters = init_model()
 
         # sub header and caption
-        st.subheader("Milkqu default template")
-        st.caption("", unsafe_allow_html=False)
+        st.markdown("<h2 style='color: #d1ebfb;'>Milkqu Example Template</h2>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
+        st.markdown(
+            """
+            <style>
+            .dataframe {
+                background-color: #2d333b !important;
+                color: #d1ebfb !important;
+                border: 1px solid #444c56 !important;
+            }
+            .dataframe th {
+                background-color: #2c3854 !important;
+                color: #ffffff !important;
+                font-weight: bold !important;
+                padding: 8px !important;
+            }
+            .dataframe td {
+                background-color: #21262d !important;
+                color: #d1ebfb !important;
+                padding: 8px !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+        
         st.dataframe(default_milkqu_df, use_container_width=True)
 
-        st.caption(
-            ":blue[pH] = Mengukur tingkat keasaman susu, yang bisa mempengaruhi kesegarannya.",
-            unsafe_allow_html=False,
-        )
-        st.caption(
-            ":blue[Temperature] = Suhu susu saat diukur, yang berpengaruh terhadap pertumbuhan bakteri.",
-            unsafe_allow_html=False,
-        )
-        st.caption(
-            ":blue[Taste] = Apakah susu terasa normal atau asam.",
-            unsafe_allow_html=False,
-        )
-        st.caption(
-            ":blue[Odor] = Bau susu, apakah masih segar atau sudah menunjukkan tanda-tanda pembusukan.",
-            unsafe_allow_html=False,
-        )
-        st.caption(":blue[Fat] = Kandungan lemak dalam susu.", unsafe_allow_html=False)
-        st.caption(":blue[Turbidity] = Seberapa keruh susu tersebut.", unsafe_allow_html=False)
-        st.caption(
-            ":blue[Colour] = Warna susu yang bisa menunjukkan perubahan kualitas.",
-            unsafe_allow_html=False,
-        )
-        st.caption(
-            ":blue[Grade] = Label hasil kualitas susu berdasarkan fitur-fitur di atas (high, medium, low).",
-            unsafe_allow_html=False,
+        # Parameter descriptions with improved styling
+        st.markdown(
+            """
+            <style>
+            .param-description {
+                color: #94c2e8; 
+                margin: 3px 0;
+                font-size: 0.9rem;
+            }
+            </style>
+            """, 
+            unsafe_allow_html=True
         )
 
+        st.markdown("<div class='param-description'>pH = Mengukur tingkat keasaman susu, yang bisa mempengaruhi kesegarannya.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Temperature = Suhu susu saat diukur, yang berpengaruh terhadap pertumbuhan bakteri.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Taste = Apakah susu terasa normal atau asam.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Odor = Bau susu, apakah masih segar atau sudah menunjukkan tanda-tanda pembusukan.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Fat = Kandungan lemak dalam susu.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Turbidity = Seberapa keruh susu tersebut.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Colour = Warna susu yang bisa menunjukkan perubahan kualitas.</div>", unsafe_allow_html=True)
+        st.markdown("<div class='param-description'>Grade = Label hasil kualitas susu berdasarkan fitur-fitur di atas (high, medium, low).</div>", unsafe_allow_html=True)
+
         # category one : predict milkqu answer
-        st.subheader("Milk Quality Prediction")
+        st.markdown("<h2 style='color: #d1ebfb; margin-top: 20px;'>Milk Quality Prediction</h2>", unsafe_allow_html=True)
+
+        # Form styling
+        st.markdown(
+            """
+            <style>
+            .stForm {
+                background-color: #21262d;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #2c3854;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .stForm > div {
+                background-color: #21262d;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
 
         with st.form(key="prediction_form"):
 
@@ -437,6 +592,28 @@ else:
             progress_text = "STATUS : IDLE"
             progress_bar = st.progress(0, text=progress_text)
 
+            st.markdown(
+                """
+                <style>
+                div[data-testid="stFormSubmitButton"] > button {
+                    background-color: #2f80ed;
+                    color: white;
+                    border: none;
+                    font-weight: bold;
+                    padding: 0.6rem 1.5rem;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                    width: 100%;
+                }
+                div[data-testid="stFormSubmitButton"] > button:hover {
+                    background-color: #1c6fd1;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+                </style>
+                """,
+                unsafe_allow_html=True
+            )
+            
             delivered_results = st.form_submit_button("Predict Milk Quality", use_container_width=True)
 
             if delivered_results:
@@ -444,7 +621,21 @@ else:
 
         # save result as state
         if "milkqu_answer_state" not in st.session_state:
-            st.info("Please fill parameters above and submit predict to see the result !")
+            st.markdown(
+                """
+                <div style="
+                    background-color: #2c3854;
+                    border-left: 4px solid #5d9df5;
+                    color: #d1ebfb;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin: 20px 0;
+                ">
+                    <i>ℹ️ Please fill parameters above and submit predict to see the result!</i>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
             st.caption("© 2025 MilkQu • built with Streamlit")
 
         # execute
@@ -499,7 +690,32 @@ else:
                         )
                         session.commit()
 
-                    st.success(identity + " Milk Grade Is " + prediction_label[int(predictions)])
+                    # Enhanced success message
+                    quality_colors = {"High": "#4CAF50", "Low": "#F44336", "Medium": "#FF9800"}
+                    quality = prediction_label[int(predictions)]
+                    st.markdown(
+                        f"""
+                        <div style="
+                            background-color: #2c3854;
+                            border-left: 4px solid {quality_colors[quality]};
+                            padding: 15px;
+                            border-radius: 5px;
+                            margin: 20px 0;
+                            animation: fadeIn 0.5s ease-in-out;
+                        ">
+                            <div style="font-size: 1.2rem; font-weight: bold; color: #d1ebfb;">
+                                {identity}'s Milk Grade Is <span style="color: {quality_colors[quality]};">{quality}</span>
+                            </div>
+                        </div>
+                        <style>
+                            @keyframes fadeIn {{
+                                from {{ opacity: 0; transform: translateY(10px); }}
+                                to {{ opacity: 1; transform: translateY(0); }}
+                            }}
+                        </style>
+                        """,
+                        unsafe_allow_html=True
+                    )
 
             except:
                 print(st.error)
@@ -507,34 +723,77 @@ else:
 
     elif menu == "Prediction History":
 
-        # Warna tema utama
-        PRIMARY_COLOR = "#2E86C1"  # Biru cerah
-        SECONDARY_COLOR = "#5DADE2"  # Biru muda
-        ACCENT_COLOR = "#FF9800"  # Oranye
-        SUCCESS_COLOR = "#00C853"  # Hijau
-        WARNING_COLOR = "#FFB74D"  # Oranye muda
-        DANGER_COLOR = "#F44336"  # Merah
-        BG_COLOR = "#F5F7F9"  # Latar belakang abu-abu terang
+        # Warna tema utama untuk dark mode
+        PRIMARY_COLOR = "#2F80ED"
+        SUCCESS_COLOR = "#4CAF50"
+        WARNING_COLOR = "#FF9800"
+        DANGER_COLOR = "#F44336"
 
         st.markdown(
             f"""
                 <style>
             .metric-card {{
-                background-color: white;
+                background-color: #2d333b;
                 border-radius: 10px;
                 padding: 15px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.2);
                 margin-bottom: 15px;
                 border-left: 5px solid {PRIMARY_COLOR};
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }}
+            .metric-card:hover {{
+                transform: translateY(-3px);
+                box-shadow: 0 6px 10px rgba(0,0,0,0.3);
             }}
             .metric-value {{
-                font-size: 24px;
+                font-size: 28px;
                 font-weight: bold;
                 color: {PRIMARY_COLOR};
+                text-shadow: 0 1px 2px rgba(0,0,0,0.2);
             }}
             .metric-label {{
                 font-size: 14px;
-                color: #666;
+                color: #94c2e8;
+                margin-top: 5px;
+            }}
+            
+            /* Chart styling */
+            div[data-testid="stVegaLiteChart"] {{
+                background-color: #21262d;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }}
+            
+            /* Table styling */
+            .stDataFrame > div > div > div {{
+                background-color: #21262d !important;
+            }}
+            
+            .stDataFrame th {{
+                background-color: #2c3854 !important;
+                color: #d1ebfb !important;
+            }}
+            
+            .stDataFrame td {{
+                background-color: #1e1e1e !important;
+                color: #d1ebfb !important;
+            }}
+            
+            /* Download button styling */
+            div[data-testid="stDownloadButton"] > button {{
+                background-color: #2f80ed;
+                color: white;
+                border: none;
+                font-weight: bold;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }}
+            
+            div[data-testid="stDownloadButton"] > button:hover {{
+                background-color: #1c6fd1;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             }}
             </style>
             """,
@@ -544,15 +803,15 @@ else:
         st.markdown(
             """
             <div style="text-align: center; padding: 10px 0;">
-                <h1 style="margin: 0; font-family: 'Helvetica Neue', sans-serif; color: #333;">
+                <h1 style="margin: 0; font-family: 'Segoe UI', sans-serif; color: #d1ebfb; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">
                     📈 Milk Quality History Prediction
                 </h1>
-                <p style="color: #666; font-size: 16px;">
-                    Ringkasan riwayat prediksi kualitas.  
+                <p style="color: #94c2e8; font-size: 16px; margin-top: 10px;">
+                    Ringkasan riwayat prediksi kualitas.
                     Gunakan filter untuk menelusuri data lebih detail!
                 </p>
             </div>
-            <hr>
+            <hr style="border: 1px solid #2c3854; margin: 15px 0;">
             """,
             unsafe_allow_html=True,
         )
@@ -584,19 +843,19 @@ else:
                 "label": "High 🚀",
                 "value": high_count,
                 "color": SUCCESS_COLOR,
-                "percentage": f"{high_count/total_pred:.0%}",
+                "percentage": f"{high_count/total_pred:.0%}" if total_pred > 0 else "0%",
             },
             {
                 "label": "Medium 🚴",
                 "value": medium_count,
                 "color": WARNING_COLOR,
-                "percentage": f"{medium_count/total_pred:.0%}",
+                "percentage": f"{medium_count/total_pred:.0%}" if total_pred > 0 else "0%",
             },
             {
                 "label": "Low 🚶",
                 "value": low_count,
                 "color": DANGER_COLOR,
-                "percentage": f"{low_count/total_pred:.0%}",
+                "percentage": f"{low_count/total_pred:.0%}" if total_pred > 0 else "0%",
             },
         ]
 
@@ -610,19 +869,66 @@ else:
                     <div class="metric-card" style="border-left: 5px solid {metric['color']}">
                         <div class="metric-value" style="color: {metric['color']}">{metric['value']}</div>
                         <div class="metric-label">{metric['label']}</div>
-                        <div style="color: {metric['color']}; font-size: 12px; font-weight: bold;">{metric['percentage']}</div>
+                        <div style="color: {metric['color']}; font-size: 12px; font-weight: bold; margin-top: 5px;">{metric['percentage']}</div>
                     </div>
                     """,
                     unsafe_allow_html=True,
                 )
 
         # ─── DISTRIBUTION CHART ───────────────────────────────────────────────────────
-        st.markdown("### 📊 Grade Distribution")
+        st.markdown("""
+            <h3 style="color: #d1ebfb; margin-top: 30px; font-family: 'Segoe UI', sans-serif;">
+                📊 Grade Distribution
+            </h3>
+            """, 
+            unsafe_allow_html=True
+        )
+        
+        # Apply custom chart theme for dark mode
+        st.markdown("""
+            <style>
+                div[data-testid="stVegaLiteChart"] > div > div > div > svg {
+                    background-color: #21262d !important;
+                }
+                div[data-testid="stVegaLiteChart"] .vega-embed .marks .role-axis-title text {
+                    fill: #94c2e8 !important;
+                }
+                div[data-testid="stVegaLiteChart"] .vega-embed .marks .role-axis-label text {
+                    fill: #d1ebfb !important;
+                }
+                div[data-testid="stVegaLiteChart"] .vega-embed .marks .role-axis-domain path {
+                    stroke: #4a6284 !important;
+                }
+                div[data-testid="stVegaLiteChart"] .vega-embed .marks .role-axis-tick line {
+                    stroke: #4a6284 !important;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+        
         dist = df["grade"].value_counts()
         st.bar_chart(dist)
 
         # ─── FILTER PANEL ─────────────────────────────────────────────────────────────
-        with st.expander("🔍 Filter & Search"):
+        st.markdown("""
+            <style>
+                .streamlit-expanderHeader {
+                    background-color: #2c3854 !important;
+                    color: #d1ebfb !important;
+                    border-radius: 8px !important;
+                    padding: 10px !important;
+                    font-weight: 500 !important;
+                }
+                .streamlit-expanderContent {
+                    background-color: #21262d !important;
+                    border: 1px solid #2c3854 !important;
+                    border-top: none !important;
+                    border-radius: 0 0 8px 8px !important;
+                    padding: 15px !important;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+        
+        with st.expander("🔍 Filter & Search", expanded=True):
             with st.form("filter_form"):
                 selected_grades = st.multiselect(
                     "Pilih Grade",
@@ -630,6 +936,28 @@ else:
                     default=df["grade"].unique(),
                 )
                 name_query = st.text_input("Cari berdasarkan Nama")
+                
+                # Style the search button
+                st.markdown("""
+                    <style>
+                    div[data-testid="stFormSubmitButton"] > button {
+                        background-color: #2f80ed;
+                        color: white;
+                        border: none;
+                        font-weight: 500;
+                        padding: 0.5rem 1rem;
+                        border-radius: 8px;
+                        transition: all 0.3s ease;
+                    }
+                    div[data-testid="stFormSubmitButton"] > button:hover {
+                        background-color: #1c6fd1;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
                 cari = st.form_submit_button("🔍 Cari")
 
             if cari:
@@ -641,18 +969,46 @@ else:
                 df_filtered = df.copy()
 
         # ─── FILTERED RESULTS ─────────────────────────────────────────────────────────
-        st.markdown("### 📋 Hasil Filter")
-        st.dataframe(
-            df_filtered,
-            use_container_width=True,
+        st.markdown("""
+            <h3 style="color: #d1ebfb; margin-top: 30px; font-family: 'Segoe UI', sans-serif;">
+                📋 Hasil Filter
+            </h3>
+            """, 
+            unsafe_allow_html=True
         )
+        
+        # Style for empty results
+        if len(df_filtered) == 0:
+            st.markdown("""
+                <div style="
+                    background-color: #2c3854;
+                    border-left: 4px solid #5d9df5;
+                    color: #d1ebfb;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin: 20px 0;
+                    text-align: center;
+                ">
+                    <i>Tidak ada data yang sesuai dengan filter yang dipilih</i>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.dataframe(
+                df_filtered,
+                use_container_width=True,
+            )
 
         # ─── DOWNLOAD BUTTON ──────────────────────────────────────────────────────────
         csv = df_filtered.to_csv(index=False).encode("utf-8")
+        
         st.download_button(
             label="⬇️ Download CSV",
             data=csv,
             file_name="milkqu_prediction_history.csv",
             mime="text/csv",
         )
+        
+        st.markdown("<hr style='border: 1px solid #2c3854; margin-top: 30px;'>", unsafe_allow_html=True)
         st.caption("© 2025 MilkQu • built with Streamlit")
